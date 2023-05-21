@@ -1,5 +1,5 @@
-module "network" {
-    source = "../modules/network"
+module "prod" {
+    source = "../../"
 
     project = var.project
     env = var.env
