@@ -1,6 +1,6 @@
 #VPC
 resource "aws_vpc" "vpc" {
-  cidr_block = var.vpc_cidr
+  cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "private_subnets" {
   availability_zone = each.value.az
 
   tags = {
-     Name = "${var.project}-${var.env}-private-${substr(each.value.az, -2, 2)}"
+    Name = "${var.project}-${var.env}-private-${substr(each.value.az, -2, 2)}"
   }
 }
 
