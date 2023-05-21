@@ -1,9 +1,9 @@
 variable "project" {
-    default = "ganghee"
+  default = "ganghee"
 }
 
 variable "env" {
-    default = "prod"
+  default = "prod"
 }
 
 variable "public_subnets" {
