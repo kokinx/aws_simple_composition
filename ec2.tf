@@ -4,16 +4,16 @@ resource "aws_instance" "ec2" {
   ami           = var.ami
   instance_type = var.instance_type
   subnet_id     = element(values(aws_subnet.public_subnets)[*].id, count.index % 2)
-  #subnet_id = var.subnet_ids[0]
   key_name = aws_key_pair.key_pair.id
 
   tags = {
     Name = "${var.project}-${var.env}-web0${count.index + 1}"
   }
 
-  #  vpc_security_group_ids = [
-  #    var.vpc_security_group
-  #  ]
+  vpc_security_group_ids = [
+    aws_security_group.common.id,
+    aws_security_group.ec2.id
+  ]
 
   root_block_device {
     volume_type = var.volume_type

@@ -41,3 +41,7 @@ variable "private_subnets" {
     }
   }
 }
+
+variable "password" {}
+variable "public_key_path" {}
+variable "ec2_ip_ingress_cidr_blocks" {}
