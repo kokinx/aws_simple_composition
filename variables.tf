@@ -3,9 +3,7 @@ variable "env" {}
 variable "vpc_cidr" {}
 variable "public_subnets" {}
 variable "private_subnets" {}
-variable "public_key_path" {
-  default = "./.ssh/public_key.tfvars"
-}
+variable "public_key_path" {}
 variable "ami" {}
 variable "instance_type" {}
 variable "volume_type" {}
@@ -23,3 +21,4 @@ variable "instance_class" {}
 variable "storage_type" {}
 variable "allocated_storage" {}
 variable "multi_az" {}
+variable "ec2_ip_ingress_cidr_blocks" {}

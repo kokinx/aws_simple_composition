@@ -8,7 +8,7 @@ module "prod" {
   private_subnets = var.private_subnets
   public_subnet_ids  = module.prod.public_subnet_ids
   private_subnet_ids = module.prod.private_subnet_ids
-  public_key_path = "../../.ssh/public_key.tfvars"
+  public_key_path = var.public_key_path
   ami             = "ami-08928044842b396f0"
   instance_type   = "t2.micro"
   volume_type     = "gp2"
@@ -19,9 +19,10 @@ module "prod" {
   engine = "mysql"
   engine_version = "8.0"
   username = "root"
-  password = file("./rds_password.tfvars")
+  password = var.password
   instance_class = "db.t3.medium"
   storage_type = "gp2"
   allocated_storage = 20
   multi_az = false
+  ec2_ip_ingress_cidr_blocks = var.ec2_ip_ingress_cidr_blocks
 }
